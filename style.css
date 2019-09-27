@@ -1,0 +1,65 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.delete_post
+{
+    padding: 5px;
+    padding-left: 0px;
+}
+
+.update_post
+{
+    padding: 5px;
+    padding-left: 15px;
+}
+
+.display_reply
+{
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.time
+{
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.post_row
+{
+    display: block;
+    height: 30px;
+}
+
+#title
+{
+    font-weight: bold;
+}
+
+label
+{
+    display: inline-block;
+    height: 25px;
+    width: 65px;
+}
+
+#message
+{
+    height: 150px;
+}
+
+.submit
+{
+    margin-left: 60px;
+}
+
