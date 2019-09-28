@@ -35,7 +35,7 @@ a
     margin-top: 5px;
 }
 
-.post_row
+.p, .post_row
 {
     display: block;
     height: 30px;
@@ -61,5 +61,23 @@ label
 .submit
 {
     margin-left: 60px;
+}
+
+.r
+{
+margin-left: 30px;
+    display: block;
+    height: 30px;
+}
+
+.rdelete_reply
+{
+    margin-left: 30px;
+}
+
+.rupdate_reply
+{
+    margin-left: 30px;
+    padding-left: 5px;
 }
 
