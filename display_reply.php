@@ -78,7 +78,7 @@ $repShows = $replyShowState->fetchAll();
 
 <form action="verify_add_reply.php" method="POST">
    <?php echo "<input type='hidden' value='$post_id' name='post_id'>" ?>
-<!--    <input type="hidden" value="--><?php //$post_id ?><!--" name="post_id">-->
+
     <label for="reply_name">Name</label>
     <input type="text" name="reply_name" class="name_input">
     <br>

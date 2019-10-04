@@ -13,6 +13,7 @@
 if (isset($_GET['reply_id'])) {
     if (isset($_GET['message'])){
         if ($_GET['message'] == "incomplete"){
+            echo "<br>";
             echo "<b>Please fill in message to update</b>";
             echo "<br>";
             echo "<br>";
