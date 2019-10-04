@@ -70,6 +70,14 @@ margin-left: 30px;
     height: 30px;
 }
 
+.rtime
+{
+    display: block;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
 .rdelete_reply
 {
     margin-left: 30px;

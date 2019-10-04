@@ -24,7 +24,7 @@ $pdo = new PDO("mysql:host=localhost;dbname=guestbook", "root", "");
 
 $post_id = $_GET['post_id'];
 
-$replySql = "SELECT * FROM post WHERE post_id=$post_id";
+$replySql = "SELECT * FROM post WHERE post_id='$post_id'";
 $replyStatement = $pdo->prepare($replySql);
 $replies = $replyStatement->fetchAll();
 ?>
@@ -43,13 +43,14 @@ $replies = $replyStatement->fetchAll();
 <?php }?>
 
 <?php
-$replyShowSql = "SELECT * FROM reply WHERE post_id=$post_id";
+$replyShowSql = "SELECT * FROM reply WHERE post_id='$post_id'";
 $replyShowState= $pdo->prepare($replyShowSql);
 $replyShowState->execute();
 
 $repShows = $replyShowState->fetchAll();
 ?>
-
+    <br>
+    <br>
 <?php foreach ($repShows as $repShow) {?>
     <a class="rdelete_reply" href="verify_delete_reply.php?reply_id=<?php echo $repShow['reply_id'] ?>">Delete Reply</a>
     <?php
@@ -57,27 +58,27 @@ $repShows = $replyShowState->fetchAll();
     $update_reply = "update_reply.php?post_id=$post_id & reply_id=$reply_id";
     ?>
 
-        <a class="rupdate_reply" href="<?php $update_reply ?>">Update Reply</a>
+        <a class="rupdate_reply" href="update_reply.php?post_id=<?php echo $post_id ?>&reply_id=<?php echo $reply_id ?>">Update Reply</a>
     <br>
     <br>
 
-    <span class="r"><?php $repShow['time'] ?></span>
+    <span class="r"><b>Time: </b> <?php echo $repShow['time'] ?></span>
 
-    <span class="r"><?php $repShow['username'] ?></span>
+    <span class="r"><b>Name: </b><?php echo $repShow['username'] ?></span>
 
-    <span class="r"><?php $repShow['location'] ?></span>
+    <span class="r"><b>Location: </b><?php echo $repShow['location'] ?></span>
 
-    <span class="r"><?php $repShow['email'] ?></span>
+    <span class="r"><b>Email: </b><?php echo $repShow['email'] ?></span>
 
-    <span class="r"><?php $repShow['message'] ?></span>
+    <span class="r"><b>Message: </b><?php echo $repShow['message'] ?></span>
 
 <?php } ?>
-
+    <br>
 <div id="title">Leave A Reply</div>
 
 <form action="verify_add_reply.php" method="POST">
-    <input type="hidden" value="<?php $post_id ?>" name="post_id">
-
+   <?php echo "<input type='hidden' value='$post_id' name='post_id'>" ?>
+<!--    <input type="hidden" value="--><?php //$post_id ?><!--" name="post_id">-->
     <label for="reply_name">Name</label>
     <input type="text" name="reply_name" class="name_input">
     <br>
@@ -91,7 +92,7 @@ $repShows = $replyShowState->fetchAll();
     <br>
 
     <label for="reply_message">Message</label>
-    <input type="text" id="message" name="reply_email">
+    <input type="text" id="message" name="reply_message">
     <br>
 
     <input type="submit" value="Reply" class="submit">
@@ -99,7 +100,7 @@ $repShows = $replyShowState->fetchAll();
 
 </form>
 <!--    if close-->
-<?php}
+<?php }
 else
 {
     header("Location:display_post.php");

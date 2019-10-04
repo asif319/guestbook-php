@@ -19,7 +19,6 @@ if (isset($_SESSION['post_name'])) {
 
     $username = $_SESSION['post_name'];
     $email = $_SESSION['post_email'];
-
     $location = $_SESSION['post_location'];
     $message = $_SESSION['post_message'];
 
